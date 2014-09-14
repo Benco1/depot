@@ -3,6 +3,7 @@ require 'test_helper'
 class ProductsControllerTest < ActionController::TestCase
   setup do
     @product = products(:one)
+    @products = Product.all
     @update = {
       title: 'Lorem Ipsum',
       description: 'Wibbles are fun!',
@@ -15,6 +16,25 @@ class ProductsControllerTest < ActionController::TestCase
     get :index
     assert_response :success
     assert_not_nil assigns(:products)
+  end
+
+  test "index should include the correct number of products" do
+    get :index
+    assert_select 'tr', @products.count
+  end
+  
+  test "index should include Show/Edit/Delete actions" do
+    %w(Show Edit Destroy).each do |list_action|
+      get :index
+      assert_select '.list_actions a', "#{list_action}"
+    end
+  end
+  
+  test "index should include the correct product titles" do
+    get :index
+    @products.each do |product|
+      assert_select 'dt', "#{product.title}"
+    end
   end
 
   test "should get new" do
@@ -52,4 +72,5 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+
 end

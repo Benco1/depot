@@ -11,4 +11,8 @@ class Product < ActiveRecord::Base
                   with: VALID_IMAGE_REGEX,
                   message: 'must be a URL for JPG, PNG or GIF.'
                   }
+
+  def self.latest
+    Product.order(:updated_at).last 
+  end
 end
