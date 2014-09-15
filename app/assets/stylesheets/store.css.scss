@@ -7,6 +7,16 @@
     border-bottom: 3px dotted #77d;
   }
 
+  .view_count {
+    margin: 0;
+    padding-bottom: 0.5em;
+    font: medium black;
+    display: inline;
+    margin-right: 1em;
+
+    float: right;
+  }
+
   /* An entry in the store catalog */
   .entry {
     overflow: auto;
@@ -34,6 +44,10 @@
       margin-left: 100px;
       margin-top: 0.5em;
       margin-bottom: 0.8em;
+
+      form, div {
+        display: inline;
+      }
     }
 
     .price {
