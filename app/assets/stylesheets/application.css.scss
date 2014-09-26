@@ -26,12 +26,11 @@
 }
 
 #notice {
-  color: #000 !important;
-  border: 2px solid red;
+  color: #f00 !important;
   padding: 1em;
   margin-bottom: 2em;
-  background-color: #f0f0f0;
   font: bold smaller sans-serif;
+  background: #e8e8e8;
 }
 
 #columns {
@@ -41,6 +40,7 @@
     margin-left: 17em;
     padding: 1em;
     background: white;
+    height: 700px;
   }
 
   #side {

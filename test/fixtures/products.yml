@@ -1,28 +1,34 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
+  id: 1
   title: MyString
   description: MyText
   image_url: MyString
   price: 9.99
 
-two:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
+rails:
+  id: 2
+  title: RailsTutorial
+  description:
+    A great book for learning Ruby on Rails!
+  price: 1.00
+  image_url:  railstutorial.png
 
 ruby:
-  title:		Programming Ruby 1.9
+  id: 3
+  title: Programming Ruby 1.9
   description:
     Ruby is the fastest growing and most exicting dynamic
     language out there. If you need to get working programs
     delivered fast, you should add Ruby to your toolbox.
-  price:		49.50
+  price: 49.50
   image_url:	ruby.png
 
-three:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99  
+tacos:
+  id: 4
+  title: How to Make Tacos
+  description:
+    This books teaches you how to make delicious tacos.
+  price: 1.00 
+  image_url: tacos.png
