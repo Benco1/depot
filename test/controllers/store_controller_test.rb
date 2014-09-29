@@ -15,4 +15,10 @@ class StoreControllerTest < ActionController::TestCase
     end
   end
 
+  test "markup needed for store coffeescript" do
+    get :index
+    assert_select '.store .entry > img', 4
+    assert_select '.entry input[type=submit]', 4
+  end
+
 end

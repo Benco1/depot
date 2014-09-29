@@ -49,6 +49,39 @@
     width: 13em;
     background: #141;
 
+    .main_links {
+      display: block;
+      clear: left;
+      padding-top: 10px;
+    }
+
+    form, div {
+      display: inline;
+    }
+
+    input {
+      fond-size: small;
+    }
+
+    #cart {
+      font-size: smaller;
+      color:     white;
+
+      table {
+        border-top: 1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+
+      img {
+        display: none;
+      }
+
+      .line_item_delete, .continue_shopping {
+        display: none;
+      }
+    }
+
     ul {
       padding: 0;
       li {
