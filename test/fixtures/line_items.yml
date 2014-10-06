@@ -2,10 +2,13 @@
 
 one: 
   id: 1
-  product_id:
-  cart_id: #Trying values here doesn't seem to help.
+  product_id: 3
+  order: one 
+  cart_id:
+  quantity: 3
 
 two:
   id: 2
   product_id: 
   cart_id: 
+  quantity: 5
