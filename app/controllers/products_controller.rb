@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
     if stale?(@latest_order)
       respond_to do |format|
         format.atom # Look for template: who_bought.atom.builder
+        format.html
+        format.xml { render xml: @product.to_xml(include: :orders) }
+        format.json { render json: @product.to_json(include: :orders) }
       end
     end
   end

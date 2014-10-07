@@ -15,7 +15,7 @@
       <div id="columns">
         <div id="side">
           <% if @cart %> <!-- when cart is nil, products#index will throw error -->
-            <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= hidden_tag_if(@cart.line_items.empty?, :div, id: 'cart') do %>
               <%= render @cart %>
             <% end %>
           <% end %>
