@@ -5,7 +5,7 @@ one:
   name: Bobby Lee
   address: MyText
   email: bl.live@example.com
-  pay_type: Check
+  pay_type_id: 1
 
 two:
   name: MyString
