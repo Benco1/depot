@@ -4,7 +4,7 @@ one:
   id: 1
   name: Bobby Lee
   address: MyText
-  email: bl.live@example.com
+  email: bobbylee@example.com
   pay_type_id: 1
 
 two:
