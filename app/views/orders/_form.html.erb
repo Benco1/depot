@@ -29,6 +29,12 @@
       options_for_select(@pay_types.map{|pay|[pay.name, pay.id]}), 
       prompt: 'Select a payment method' %>
   </div>
+ <!--  Add code to hide shipped/ship_date selector if not in edit view AND not admin -->
+  <div class="field">
+    <%= f.label 'Shipped?' %><br>
+    <%= f.select :ship_date,
+      options_for_select([['Not yet', 'null'], ['Shipped', Date.current]])%>
+  </div>
   <div class="actions">
     <%= f.submit 'Place Order' %>
   </div>
