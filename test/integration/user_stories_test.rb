@@ -65,4 +65,52 @@ class UserStoriesTest < ActionDispatch::IntegrationTest
     assert_equal "Pragmatic Store Order Confirmation", mail.subject
   end
 
+  test "shipped order email" do
+    LineItem.delete_all
+    Order.delete_all
+    ruby_book = products(:ruby)
+
+    get "/"                  
+    xml_http_request :post, '/line_items', product_id: ruby_book.id
+    get "/orders/new"
+
+    post_via_redirect "/orders",
+                      order: { name:        "Bill Smith",
+                               address:     "1 Main Street",
+                               email:       "billy@example.com",
+                               pay_type_id: 1
+                             }
+    assert :success
+
+    orders = Order.all
+    order = orders[0]
+
+    patch_via_redirect order_url(order.id), { order: { ship_date:   "2014-10-10" } }
+
+    assert :success
+
+    orders = Order.all
+    order = orders[0]
+
+    assert_equal "2014-10-10", order.ship_date.to_s
+
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal ["billy@example.com"], mail.to
+    assert_equal "PragmaticStore@example.com", mail[:from].value
+    assert_equal "Pragmatic Store Order Shipped", mail.subject
+  end
+
+  test "user inputs invalid cart id" do
+    get '/carts'
+    assert :success
+    assert_template "index"
+
+    get '/carts/invalid_id_value'
+    assert_redirected_to store_url
+
+    mail = ActionMailer::Base.deliveries.last
+    assert_equal ["admin@example.com"], mail.to
+    assert_equal "PragmaticStore@example.com", mail[:from].value
+    assert_equal "Pragmatic Store Error Notification", mail.subject
+  end
 end
